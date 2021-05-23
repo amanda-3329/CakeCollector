@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Cake List</h1>
+{% for cake in cakes %}
+
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ cake.name }}</span>
+      <p>Cake Flavor: {{ cake.flavor }}</p>
+      <p>Icing Flavor: {{ cake.icing_flavor }}</p>
+      <p>Description: {{ cake.description }}</p>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
