@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'cakecollector_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'catcollector',
+        'NAME': 'cakecollector',
     }
 }
 

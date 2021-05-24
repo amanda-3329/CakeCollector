@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-{% block content %}
 
-<h1>Cake List</h1>
- {% for cake in cakes %}
+{% block content %}
+  
+  <h1>Cake Details</h1>
+  
   <div class="card">
-  <a href="{{ cake.id }}">
     <div class="card-content">
       <span class="card-title">{{ cake.name }}</span>
       <p>Cake Flavor: {{ cake.flavor }}</p>
@@ -12,7 +12,5 @@
       <p>Description: {{ cake.description }}</p>
     </div>
   </div>
-</a>
 
-{% endfor %}
 {% endblock %}
