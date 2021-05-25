@@ -13,13 +13,15 @@
 <body>
   <header class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper amandanav">
+      <div class="nav-wrapper">
         <ul>
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;CakeCollector</a></li>
         </ul>
         <ul class="right">
+           <li><a href="{% url 'home' %}">Home</a></li>
          <li><a href="/about">About</a></li>
 <!-- new markup below -->   
+          <li><a href="{% url 'create_cake' %}">Add a Cake</a></li>
         <li><a href="/cakes">View All Cakes</a></li>
         </ul>
       </div>
@@ -29,7 +31,7 @@
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer newfooter">
+  <footer class="page-footer">
     <div class="right">All Rights Reserved, &copy; 2021 Cake Collector &nbsp;</div>
   </footer>
 </body>

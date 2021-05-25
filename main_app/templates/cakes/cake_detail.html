@@ -11,6 +11,12 @@
       <p>Icing Flavor: {{ cake.icing_flavor }}</p>
       <p>Description: {{ cake.description }}</p>
     </div>
+
+    <div class="card-action">
+    <a href="{% url 'delete_cake' cake.id %}">DELETE</a>
+    <a href="{% url 'update_cake' cake.id %}">UPDATE</a>
+    
+    </div>
   </div>
 
 {% endblock %}

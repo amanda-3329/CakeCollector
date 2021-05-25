@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block title %}
 - Home
@@ -7,6 +7,9 @@
 
 {% block content %}
 
-  <h1>Welcome to the CakeCollector</h1>
+  <h1>Welcome to CakeCollector</h1>
+<body>
+  <img src="{% static 'images/dripcake.png' %}" alt="My image">
+</body>
 
 {% endblock %}
