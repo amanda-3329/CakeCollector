@@ -9,6 +9,7 @@ TASTED = (
 
 class Customization(models.Model):
     name = models.CharField(max_length=100)
+    
 #This code below names the object in the admin site:
     def __str__(self):
      return f'{self.name}'
@@ -23,6 +24,7 @@ class Cake(models.Model):
 #Sets up the many to many relationship between Cake and Customization:
     customizations = models.ManyToManyField(Customization, blank=True)
 
+
     def __str__(self):
         return f'{self.name} | {self.flavor}'
  
@@ -36,7 +38,15 @@ class Tasting(models.Model):
         default=TASTED[0][0]
     )
 
-    cake = models.ForeignKey (Cake, on_delete=models.CASCADE)
+    cake = models.ForeignKey (Cake, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return f'{self.get_tasted_display()} on {self.date}'
+
+
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    cake = models.ForeignKey(Cake, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Photo for cake_id: {self.cake_id} @ {self.url}"

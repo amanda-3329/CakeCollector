@@ -12,15 +12,32 @@
         <p>Icing: {{ cake.icing_flavor }}</p>
         <p>Description: {{ cake.description }}</p>
       </div>
+
       <!-- Card Actions -->
         <div class="card-action">
           <a href="{% url 'delete_cake' cake.id %}">Delete</a>
           <a href="{% url 'update_cake' cake.id %}">Update</a>
         </div>
     </div>
+    {% comment %} Display Images {% endcomment %}
+  
+    <!-- Insert photo markup below this comment -->
+    {% for photo in cake.photo_set.all %}
+      <img class="responsive-img card-panel" src="{{photo.url}}">
+    {% empty %}
+      <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+    {% endfor %}
+
+    <form action="{% url 'add_photo' cake.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+    {% csrf_token %}<form action="{% url 'add_photo' cake.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+    {% csrf_token %}
+    <input type="file" name="photo-file">
+    <br><br>
+    <input type="submit" class="btn" value="Upload Photo">
+</form>
+   
   </div>
-
-
+{% comment %} Tasting Info: {% endcomment %}
   <div class="col s6">
   
   <form action="{% url 'tasting' cake.id %}"method="post">
@@ -28,6 +45,8 @@
         {{ tasting_form.as_p }}
         <input type="submit" class="btn" value="Add Tasting">
       </form>
+
+      
       
     <table class="striped">
       <thead>
@@ -38,6 +57,8 @@
           <tr>
             <td>{{tasting.date}}</td>
             <td>{{tasting.get_tasted_display}}</td>
+            {% comment %} DELETE TASTING {% endcomment %}
+            <td><a class="btn" href="{% url 'delete_tasting' cake.id tasting.id %}">DELETE TASTING</a></td>
           </tr>
         {% endfor %}
       </tbody>
@@ -56,7 +77,7 @@
           <span class="card-title">
 
           {{ customizations.name }}
-          
+           <a class="btn pink" href="{% url 'remove_customization' cake.id customizations.id %}">Remove</a>
           </span>
        </div>
       </div>
