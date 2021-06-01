@@ -20,6 +20,7 @@ CakeCollector is a site for customers interested in tracking new cakes they have
 * Materialize CSS Framework
 * Python
 * Django
+* PostgreSQL
 * AWS 
 
 
