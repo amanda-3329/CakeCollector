@@ -4,7 +4,7 @@
 
 <h1>Add a Cake</h1>
 
-<form method="POST">
+<form method="POST" action="{% url 'cake_new' %}">
 {% csrf_token %}
 {{ form.as_p }} 
 

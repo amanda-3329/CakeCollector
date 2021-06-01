@@ -1,21 +1,44 @@
-# Finch Collector - Views and Templates
+After cloning down a Python / Django project follow these steps.
 
-The lab for this lesson is repeating everything we just did, except you'll collect something else like Finches and call the project something like finchcollector, or whatever.
+- Create a new virtual environment in your project with
+```bash
+$ python3 -m venv .env
+$ source .env/bin/activate
+```
+- Install its dependencies with
+```bash
+pip3 install -r requirements.txt
+```
+# CakeCollector
 
-- Fork and clone this repo
-- Pick a reource. (Dogs, Cards, Stamps, etc)
-- Initialize your project. (Do not forget your .env)
-- Create your db. 
-- Configure your application to connect to the db.
-(Dont forget to use startapp to get your application folder and include it in your settings.py)
-- Create a home route, about route, and index route. 
-- Create a template view that extends a base for all the routes. 
+CakeCollector is a site for customers interested in tracking new cakes they have tried. From a bride to be or someone planning an event, they can upload details about the cake they tried, when it was tasted, and the origin of the cake!
+
+## Technologies Used
+
+* HTML
+* CSS
+* Materialize CSS Framework
+* Python
+* Django
+* AWS 
 
 
-Because your completed Finch Collector app will be fairly comprehensive and be a nice addition to your portfolio, you should **create it outside of the class repo** so that you can make it a repo in your personal GitHub account.
+## Existing Features
 
-## References
 
-[Django Template Docs](https://docs.djangoproject.com/en/3.0/ref/templates/builtins/)
+* Home page with image, clickable navigation bar to log in/log out. 
+* Working navigation to also "View All Cakes" tracked and "Add a Cake" to add new cakes
+* Two model functionality, with the ability to add/delete pre-existing options from the customization menu.
+* Full CRUD of the database entries.
+* Pages fully link to each other.
+* AWS photo upload and hosting
+* Edit button -user can edit their entries.
+* Delete button - user can delete their entries
 
-[Django Static Files](https://docs.djangoproject.com/en/3.0/howto/static-files/)
+
+## Planned Features
+
+* User sign-up
+* Ability to filter through cake options using database categories. 
+* Media query for better screen adaptation
+* Deployment to Heroku app

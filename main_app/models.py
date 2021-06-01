@@ -1,4 +1,8 @@
 from django.db import models
+from django.urls import reverse
+from datetime import date
+# Import the User
+from django.contrib.auth.models import User
 
 TASTED = (
     ('H', 'Homemade'),
@@ -23,6 +27,8 @@ class Cake(models.Model):
     description = models.TextField (max_length=250)
 #Sets up the many to many relationship between Cake and Customization:
     customizations = models.ManyToManyField(Customization, blank=True)
+#Add the foreign key linking to a user instane
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
     def __str__(self):
